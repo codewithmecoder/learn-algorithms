@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class ListNode {
+        constructor(val, next) {
+          this.val = val === undefined ? 0 : val;
+          this.next = next === undefined ? null : next;
+        }
+      }
+      function reverseLinkListIliterate(head) {
+        let prev = null,
+          cur = head,
+          next = null;
+        while (cur != null) {
+          next = cur.next;
+          cur.next = prev;
+          prev = cur;
+          cur = next;
+        }
+        head = prev;
+        console.log(head);
+        return head;
+      }
+      const head = new ListNode(1);
+      head.next = new ListNode(2);
+      head.next.next = new ListNode(3);
+      head.next.next.next = new ListNode(4);
+      head.next.next.next.next = new ListNode(5);
+      reverseLinkListIliterate(head);
+    </script>
+    <script type="module" src="./build/src/app.js"></script>
+  </body>
+</html>
